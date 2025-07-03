@@ -12,9 +12,9 @@ export function Footer() {
           <Image 
             src="/logos/SVG/prospot_logo_2.svg" 
             alt="ProSpot" 
-            width={72} 
-            height={20} 
-            className="h-5 w-auto opacity-50"
+            width={96} 
+            height={26} 
+            className="h-6 w-auto opacity-50"
           />
           <p className="text-sm text-muted-foreground font-mono">
             © {currentYear} ProSpot
