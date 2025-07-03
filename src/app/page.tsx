@@ -99,7 +99,7 @@ export default function Home() {
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => {
-              const IconComponent = Icons[product.icon as keyof typeof Icons];
+              const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
               
               return (
                 <Card key={product.id} className="relative overflow-hidden transition-shadow hover:shadow-lg">

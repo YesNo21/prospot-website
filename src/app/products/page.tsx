@@ -20,7 +20,7 @@ export default function ProductsPage() {
       
       <div className="grid gap-12">
         {products.map((product, index) => {
-          const IconComponent = Icons[product.icon as keyof typeof Icons];
+          const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
           const isEven = index % 2 === 0;
           
           return (

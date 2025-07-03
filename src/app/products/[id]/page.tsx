@@ -26,7 +26,7 @@ export default async function ProductPage({
     notFound();
   }
 
-  const IconComponent = Icons[product.icon as keyof typeof Icons];
+  const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
 
   return (
     <div className="flex flex-col">
