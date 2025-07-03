@@ -12,8 +12,8 @@ export default function HomePage() {
       <div className="relative">
         <div className="relative bg-tile">
           <div className="bg-gradient-to-b from-white w-full h-full absolute top-0"></div>
-          <div className="container">
-            <div className="relative min-h-[40vh] mx-auto max-w-2xl pt-10 xl:pt-20 pb-30 space-y-6 lg:max-w-4xl lg:px-12 flex flex-col items-center justify-center">
+          <div className="container px-4 sm:px-6">
+            <div className="relative min-h-[40vh] mx-auto max-w-2xl pt-10 xl:pt-20 pb-20 space-y-6 lg:max-w-4xl flex flex-col items-center justify-center">
               <div className="flex flex-col gap-4 items-center">
                 <div className="text-md leading-6 prose uppercase py-1 px-3 bg-white font-mono italic">
                   Simple, Scalable Retail Tools
@@ -53,7 +53,7 @@ export default function HomePage() {
             </div>
           </div>
           
-          <div className="container relative mx-auto max-w-2xl pb-20 pt-10 space-y-6 lg:max-w-4xl lg:px-12 flex flex-col items-center">
+          <div className="container px-4 sm:px-6 relative mx-auto max-w-2xl pb-20 pt-10 space-y-6 lg:max-w-4xl flex flex-col items-center">
             <div className="prose sm:prose-lg md:prose-xl xl:prose-2xl text-gray-700 prose-a:text-gray-700 font-light text-center">
               <p>
                 ProSpot transforms brick-and-mortar retail with intelligent technology that creates 
@@ -88,62 +88,60 @@ export default function HomePage() {
 
       {/* Products Section */}
       <div className="border-t border-gray-100 bg-gray-50">
-        <div className="container">
-          <aside className="py-12 sm:py-20">
-            <div>
+        <div className="container px-4 sm:px-6">
+          <div className="py-12 sm:py-20">
+            <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
                 Our Products
               </h2>
               <p className="mt-2 text-lg leading-8 text-gray-600">
                 Five powerful solutions that work together to transform your retail experience.
               </p>
-              <div className="pt-6 space-y-6">
-                {products.map((product) => {
-                  const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
-                  
-                  return (
-                    <article 
-                      key={product.id}
-                      className="border border-gray-200 rounded-sm p-6 bg-gray-50 flex flex-col justify-between transition-colors hover:bg-white relative"
-                    >
-                      <Link className="hover-brand underline transition-colors" href={`/products/${product.id}`}>
-                        <span className="absolute inset-0 z-10"></span>
-                      </Link>
-                      <div>
-                        <h3 className="text-2xl font-bold mb-4 leading-tight">
-                          {product.trademarkedName}
-                        </h3>
-                        <p className="line-clamp-3 text-sm leading-6 text-gray-600 max-w-[70ch]">
-                          {product.description}
-                        </p>
-                      </div>
-                      <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
-                        <div className="flex items-center">
-                          <div className="flex items-center font-mono">
-                            <div className="h-6 w-6 mr-2">
-                              {IconComponent && <IconComponent className="h-full w-full" />}
-                            </div>
-                            <div className="flex flex-col">
-                              <div className="font-bold text-sm">{product.tagline}</div>
-                            </div>
-                          </div>
-                        </div>
-                        <span className="text-gray-500 text-xs font-mono">
-                          View details →
-                        </span>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
             </div>
-          </aside>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+              {products.map((product) => {
+                const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
+                
+                return (
+                  <article 
+                    key={product.id}
+                    className="border border-gray-200 rounded-sm p-6 bg-white hover:shadow-lg transition-all relative group"
+                  >
+                    <Link href={`/products/${product.id}`}>
+                      <span className="absolute inset-0 z-10"></span>
+                    </Link>
+                    <div className="mb-4">
+                      {IconComponent && (
+                        <div className="h-12 w-12 rounded-lg bg-gray-100 flex items-center justify-center mb-4">
+                          <IconComponent className="h-6 w-6" />
+                        </div>
+                      )}
+                      <h3 className="text-xl font-bold mb-2">
+                        {product.trademarkedName}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        {product.tagline}
+                      </p>
+                      <p className="text-sm text-gray-600 line-clamp-2">
+                        {product.description}
+                      </p>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-gray-100">
+                      <span className="text-sm font-mono text-gray-500 group-hover:text-gray-900 transition-colors">
+                        View details →
+                      </span>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Stats Section */}
       <section className="py-20 bg-white">
-        <div className="container">
+        <div className="container px-4 sm:px-6">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Trusted by retailers nationwide

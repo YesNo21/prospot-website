@@ -1,0 +1,11 @@
+<svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stacked logo with dot below -->
+  <g id="prospot-stacked">
+    <!-- PRO text with rounded rectangle -->
+    <rect x="10" y="10" width="120" height="50" rx="25" fill="currentColor"/>
+    <!-- Circle dot -->
+    <circle cx="155" cy="35" r="25" fill="currentColor"/>
+    <!-- SPOT text below -->
+    <text x="10" y="100" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="currentColor">SPOT</text>
+  </g>
+</svg>

@@ -12,7 +12,7 @@ export default function DemoPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
         
-        <div className="relative container px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <div className="relative container px-4 sm:px-6 py-24 md:py-32">
           <div className="mx-auto max-w-4xl text-center fade-in">
             <Badge className="mb-4 bg-gradient-to-r from-orange-600 to-pink-600 text-white border-0">
               Book a Demo
@@ -30,7 +30,7 @@ export default function DemoPage() {
 
       {/* Demo Form Section */}
       <section className="py-20 bg-white dark:bg-background">
-        <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="container px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
             {/* Benefits */}
             <div className="space-y-8">
@@ -171,7 +171,7 @@ export default function DemoPage() {
 
       {/* Additional Info */}
       <section className="py-16 bg-gray-50 dark:bg-gray-900/50">
-        <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="container px-4 sm:px-6">
           <div className="grid gap-8 md:grid-cols-3 max-w-4xl mx-auto text-center">
             <div>
               <div className="mb-4 mx-auto w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">

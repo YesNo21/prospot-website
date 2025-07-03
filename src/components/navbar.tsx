@@ -15,18 +15,17 @@ import {
 } from "@/components/ui/navigation-menu";
 import { products } from "@/lib/products";
 import * as Icons from "lucide-react";
+import { Logo } from "@/components/logo";
 
 export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed z-50 h-24 inset-0 bg-white/80 flex items-center backdrop-blur-lg">
-      <div className="container py-6 px-2 sm:px-6">
+    <header className="fixed z-50 h-24 w-full bg-white/80 flex items-center backdrop-blur-lg">
+      <div className="container px-4 sm:px-6 py-6">
         <div className="flex items-center justify-between gap-5">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-lg sm:text-2xl pl-2 font-semibold">
-              ProSpot
-            </span>
+          <Link href="/" className="flex items-center">
+            <Logo className="h-8 sm:h-10" variant="text" />
           </Link>
         
           <nav>

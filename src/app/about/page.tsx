@@ -9,7 +9,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
         
-        <div className="relative container px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <div className="relative container px-4 sm:px-6 py-24 md:py-32">
           <div className="mx-auto max-w-4xl text-center fade-in">
             <Badge className="mb-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white border-0">
               About ProSpot
@@ -27,7 +27,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="py-20 bg-white dark:bg-background">
-        <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="container px-4 sm:px-6">
           <div className="grid gap-12 md:grid-cols-2 max-w-6xl mx-auto">
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
@@ -49,7 +49,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="py-20 bg-gray-50 dark:bg-gray-900/50">
-        <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="container px-4 sm:px-6">
           <h2 className="text-4xl font-bold text-center mb-16">Our Values</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             <Card className="border-0 shadow-lg">
@@ -105,7 +105,7 @@ export default function AboutPage() {
 
       {/* Leadership */}
       <section className="py-20 bg-white dark:bg-background">
-        <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="container px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-8">Leadership Team</h2>
             <p className="text-lg text-muted-foreground mb-16">
