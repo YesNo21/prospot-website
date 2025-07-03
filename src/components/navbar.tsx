@@ -28,9 +28,9 @@ export function Navbar() {
             <Image 
               src="/logos/SVG/prospot_logo_2.svg" 
               alt="ProSpot" 
-              width={160} 
-              height={44} 
-              className="h-8 sm:h-10 w-auto"
+              width={96} 
+              height={26} 
+              className="h-5 sm:h-6 w-auto"
               priority
             />
           </Link>
