@@ -38,7 +38,7 @@ export function Navbar() {
                         Products
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-2 p-4 md:w-[500px] lg:w-[600px]">
+                        <ul className="grid w-[400px] gap-2 p-4 md:w-[500px] lg:w-[600px] bg-white border border-gray-200 rounded-md shadow-lg">
                           {products.map((product) => {
                             const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
                             
