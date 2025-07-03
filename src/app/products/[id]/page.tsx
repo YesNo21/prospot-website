@@ -33,13 +33,12 @@ export default async function ProductPage({
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-dots opacity-10"></div>
-        <div className="container py-12 sm:py-20">
-          <Link href="/" className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-foreground mb-8">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to products
-          </Link>
-          
-          <div className="mx-auto max-w-4xl">
+        <div className="container px-4 sm:px-6 py-12 sm:py-20">
+          <div className="max-w-4xl mx-auto">
+            <Link href="/products" className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-foreground mb-8">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to products
+            </Link>
             <div className="mb-8 flex items-center gap-4">
               {IconComponent && (
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
@@ -85,8 +84,8 @@ export default async function ProductPage({
 
       {/* Features Section */}
       <section className="border-t border-gray-100 py-20">
-        <div className="container">
-          <div className="mx-auto max-w-4xl">
+        <div className="container px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight mb-12">What It Does</h2>
             <div className="grid gap-8 md:grid-cols-2">
               {product.whatItDoes.map((item, index) => (
@@ -104,8 +103,8 @@ export default async function ProductPage({
 
       {/* Benefits Section */}
       <section className="border-t border-gray-100 bg-gray-50 py-20">
-        <div className="container">
-          <div className="mx-auto max-w-4xl">
+        <div className="container px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight mb-12">Why You'll Love It</h2>
             <div className="space-y-6">
               {product.whyYouLoveIt.map((item, index) => (
@@ -127,8 +126,8 @@ export default async function ProductPage({
       {/* Technical Details Section */}
       {(product.keyCap || product.businessImpact || product.deploymentScalability) && (
         <section className="border-t border-gray-100 py-20">
-          <div className="container">
-            <div className="mx-auto max-w-6xl">
+          <div className="container px-4 sm:px-6">
+            <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold tracking-tight mb-12">Enterprise Details</h2>
               
               <div className="grid gap-12 lg:grid-cols-3">
@@ -178,8 +177,8 @@ export default async function ProductPage({
 
       {/* CTA Section */}
       <section className="border-t border-gray-100 bg-gray-900 text-white py-20">
-        <div className="container">
-          <div className="mx-auto max-w-4xl text-center">
+        <div className="container px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
               Ready to see {product.trademarkedName} in action?
             </h2>

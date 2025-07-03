@@ -8,8 +8,8 @@ export default function ProductsPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-tile opacity-5"></div>
-        <div className="container py-12 sm:py-20">
-          <div className="mx-auto max-w-4xl text-center">
+        <div className="container px-4 sm:px-6 py-12 sm:py-20">
+          <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
               Our Products
             </h1>
@@ -23,7 +23,7 @@ export default function ProductsPage() {
 
       {/* Products Grid */}
       <section className="border-t border-gray-100 bg-gray-50 py-20">
-        <div className="container">
+        <div className="container px-4 sm:px-6">
           <div className="space-y-8 max-w-5xl mx-auto">
             {products.map((product, index) => {
               const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
@@ -85,8 +85,8 @@ export default function ProductsPage() {
 
       {/* CTA Section */}
       <section className="border-t border-gray-100 py-20">
-        <div className="container">
-          <div className="mx-auto max-w-4xl text-center">
+        <div className="container px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold tracking-tight mb-6">
               Ready to transform your retail experience?
             </h2>
