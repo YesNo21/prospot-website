@@ -33,17 +33,25 @@ export default function HomePage() {
           </div>
         </div>
         
-        {/* Logo Section */}
+        {/* Logo Animation Section */}
         <div className="flex flex-col items-center">
-          <div className="relative -mt-16">
-            <Image 
-              src="/logos/SVG/prospot_logo_2.svg" 
-              alt="ProSpot Logo" 
-              width={250} 
-              height={68} 
-              className="w-48 sm:w-64 h-auto"
-              priority
-            />
+          <div className="relative flex gap-[0] -mt-16 group">
+            <div className="z-10 aspect-square w-32 h-32 flex justify-center items-center rounded-full border-white border-4 bg-white transform translate-x-2 group-hover:scale-110 group-hover:-translate-x-5 transition-all duration-300">
+              <svg className="w-20 h-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="40" fill="currentColor" className="text-brand" />
+                <path d="M50 30v40M30 50h40" stroke="white" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+            <div className="text-black opacity-0 text-4xl scale-50 font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-in-out">
+              +
+            </div>
+            <div className="aspect-square w-32 h-32 border-white border-4 flex justify-center items-center rounded-full transform -translate-x-2 group-hover:scale-110 group-hover:translate-x-5 transition-all duration-300 bg-black">
+              <svg className="w-20 h-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="30" y="25" width="40" height="50" fill="white" rx="4" />
+                <circle cx="50" cy="45" r="8" fill="black" />
+                <path d="M42 60h16" stroke="black" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
           </div>
           
           <div className="container px-4 sm:px-6 relative max-w-2xl mx-auto pb-20 pt-10 space-y-6 lg:max-w-4xl flex flex-col items-center">
