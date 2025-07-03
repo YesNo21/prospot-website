@@ -77,8 +77,6 @@ export default async function ProductPage({
               </Link>
             </div>
           </div>
-            
-          </div>
         </div>
       </section>
 
