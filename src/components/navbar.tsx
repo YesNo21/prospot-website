@@ -20,77 +20,72 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-lg supports-[backdrop-filter]:bg-white/60 dark:bg-gray-950/80 dark:supports-[backdrop-filter]:bg-gray-950/60">
-      <div className="container px-4 sm:px-6 lg:px-8 flex h-16 items-center">
-        <Link href="/" className="mr-8 flex items-center space-x-2 font-bold text-2xl">
-          <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
-            ProSpot
-          </span>
-        </Link>
+    <header className="fixed z-50 h-24 inset-0 bg-white/80 flex items-center backdrop-blur-lg">
+      <div className="container py-6 px-2 sm:px-6">
+        <div className="flex items-center justify-between gap-5">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-lg sm:text-2xl pl-2 font-semibold">
+              ProSpot
+            </span>
+          </Link>
         
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  {products.map((product) => {
-                    const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
-                    
-                    return (
-                      <li key={product.id}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            href={`/products/${product.id}`}
-                            className={cn(
-                              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
-                            )}
-                          >
-                            <div className="flex items-center gap-3">
-                              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors">
-                                {IconComponent && <IconComponent className="h-5 w-5 text-gray-600 dark:text-gray-400" />}
-                              </div>
-                              <div>
-                                <div className="text-sm font-medium leading-none mb-1">{product.trademarkedName}</div>
-                                <p className="line-clamp-1 text-sm leading-snug text-muted-foreground">
-                                  {product.tagline}
-                                </p>
-                              </div>
-                            </div>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+          <nav>
+            <ul role="list" className="flex items-center gap-4 md:gap-6 leading-5 text-xs sm:text-base tracking-tight font-mono">
+              <li>
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger className="hover:underline bg-transparent h-auto p-0 font-mono text-xs sm:text-base font-normal">
+                        Products
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-2 p-4 md:w-[500px] lg:w-[600px]">
+                          {products.map((product) => {
+                            const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
+                            
+                            return (
+                              <li key={product.id}>
+                                <NavigationMenuLink asChild>
+                                  <Link
+                                    href={`/products/${product.id}`}
+                                    className="block p-3 space-y-1 rounded-sm border border-transparent hover:border-gray-200 hover:bg-gray-50 transition-colors"
+                                  >
+                                    <div className="flex items-center gap-3">
+                                      {IconComponent && <IconComponent className="h-4 w-4" />}
+                                      <div>
+                                        <div className="font-medium text-sm">{product.trademarkedName}</div>
+                                        <p className="text-xs text-muted-foreground">
+                                          {product.tagline}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </Link>
+                                </NavigationMenuLink>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </li>
             
-            <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <li>
+                <Link className="hover:underline" href="/about">
                   About
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        
-        <div className="ml-auto flex items-center space-x-4">
-          <Button 
-            asChild 
-            className="bg-gradient-to-r from-gray-900 to-gray-700 hover:from-gray-800 hover:to-gray-600 text-white shadow-md"
-          >
-            <Link href="/demo">Book a Demo</Link>
-          </Button>
+                </Link>
+              </li>
+              <li className="sm:before:w-[1px] sm:before:bg-gray-200 before:block flex sm:gap-4 md:gap-6">
+                <Link 
+                  className="rounded-full flex gap-4 items-center bg-black hover:bg-blue focus:bg-blue py-2 px-4 justify-center sm:py-3 sm:px-6 text-white transition-colors duration-200"
+                  href="/demo"
+                >
+                  <span className="whitespace-nowrap">Book a Demo</span>
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </header>

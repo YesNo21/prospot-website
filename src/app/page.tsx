@@ -1,201 +1,174 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles, Zap, Shield, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { products } from "@/lib/products";
 import * as Icons from "lucide-react";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col">
-      {/* Hero Section with gradient background */}
-      <section className="relative overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
+    <main className="min-h-screen pt-24">
+      {/* Hero Section */}
+      <div className="relative">
+        <div className="relative bg-tile">
+          <div className="bg-gradient-to-b from-white w-full h-full absolute top-0"></div>
+          <div className="container">
+            <div className="relative min-h-[40vh] mx-auto max-w-2xl pt-10 xl:pt-20 pb-30 space-y-6 lg:max-w-4xl lg:px-12 flex flex-col items-center justify-center">
+              <div className="flex flex-col gap-4 items-center">
+                <div className="text-md leading-6 prose uppercase py-1 px-3 bg-white font-mono italic">
+                  Simple, Scalable Retail Tools
+                </div>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-black">
+                  <Link className="underline decoration-brand hover-brand underline-offset-8 hover:underline-offset-4 transition-all ease-out" href="/products">
+                    ProSpot
+                  </Link>
+                  +
+                  <span className="underline decoration-black text-framework underline-offset-8 hover:underline-offset-4 transition-all ease-out">
+                    Retail
+                  </span>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
         
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-        <div className="absolute top-0 right-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
-        
-        <div className="relative container px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="mx-auto max-w-4xl text-center fade-in">
-            <Badge className="mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0">
-              <Sparkles className="w-3 h-3 mr-1" />
-              Enterprise-Grade Retail Technology
-            </Badge>
-            <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-gradient">
-              Simple, Scalable Tools That Make Shopping Easier
-            </h1>
-            <p className="mb-8 text-xl text-muted-foreground sm:text-2xl max-w-3xl mx-auto">
-              ProSpot delivers enterprise-grade, B2B tools that transform brick-and-mortar retail 
-              into data-driven, shopper-centric experiences.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-gray-900 to-gray-700 hover:from-gray-800 hover:to-gray-600 text-white shadow-lg" asChild>
-                <Link href="/demo">
-                  Book a Demo <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-2" asChild>
-                <Link href="/products">Explore Products</Link>
-              </Button>
+        {/* Logo Animation Section */}
+        <div className="flex flex-col items-center">
+          <div className="relative flex gap-[0] -mt-16 group">
+            <div className="z-10 aspect-square w-32 h-32 flex justify-center items-center rounded-full border-white border-4 bg-white transform translate-x-2 group-hover:scale-110 group-hover:-translate-x-5 transition-all duration-300">
+              <svg className="w-20 h-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="40" fill="currentColor" className="text-brand" />
+                <path d="M50 30v40M30 50h40" stroke="white" strokeWidth="4" strokeLinecap="round" />
+              </svg>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
-        <div className="container px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">10-25%</div>
-              <div className="text-sm opacity-80">Increase in Basket Size</div>
+            <div className="text-black opacity-0 text-4xl scale-50 font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-in-out">
+              +
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">12 Weeks</div>
-              <div className="text-sm opacity-80">Time to ROI</div>
+            <div className="aspect-square w-32 h-32 border-white border-4 flex justify-center items-center rounded-full transform -translate-x-2 group-hover:scale-110 group-hover:translate-x-5 transition-all duration-300 bg-black">
+              <svg className="w-20 h-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="30" y="25" width="40" height="50" fill="white" rx="4" />
+                <circle cx="50" cy="45" r="8" fill="black" />
+                <path d="M42 60h16" stroke="black" strokeWidth="2" strokeLinecap="round" />
+              </svg>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">24/7</div>
-              <div className="text-sm opacity-80">Customer Support</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2">100+</div>
-              <div className="text-sm opacity-80">Store Deployments</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why ProSpot Section with icons */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900/50">
-        <div className="container px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-12 text-center text-4xl font-bold">Why Choose ProSpot?</h2>
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="flex gap-4 p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                  <Zap className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="mb-2 font-semibold text-lg">End-to-end, consultative approach</h3>
-                  <p className="text-muted-foreground">
-                    Strategy, implementation, analytics, continuous optimization
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4 p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                  <Shield className="h-6 w-6 text-green-600 dark:text-green-400" />
-                </div>
-                <div>
-                  <h3 className="mb-2 font-semibold text-lg">Open, API-first architecture</h3>
-                  <p className="text-muted-foreground">
-                    Plug into existing POS, CRM, inventory, loyalty and DMP systems
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4 p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                  <BarChart3 className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="mb-2 font-semibold text-lg">Proven ROI</h3>
-                  <p className="text-muted-foreground">
-                    10–25% increases in add-to-basket rates and average order value within 12 weeks
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4 p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-                  <Sparkles className="h-6 w-6 text-orange-600 dark:text-orange-400" />
-                </div>
-                <div>
-                  <h3 className="mb-2 font-semibold text-lg">Scalable design</h3>
-                  <p className="text-muted-foreground">
-                    Deploy a pilot aisle today, roll out 100+ stores tomorrow
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Products Overview with better cards */}
-      <section className="py-20 bg-white dark:bg-background">
-        <div className="container px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center mb-16">
-            <h2 className="mb-4 text-4xl font-bold">Our Solutions</h2>
-            <p className="text-xl text-muted-foreground">
-              Every ProSpot tool plugs into your existing store systems and comes with expert setup and support.
-            </p>
           </div>
           
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-            {products.map((product, index) => {
-              const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
-              const colors = ['from-blue-500 to-blue-600', 'from-purple-500 to-purple-600', 'from-pink-500 to-pink-600', 'from-green-500 to-green-600', 'from-orange-500 to-orange-600'];
-              const bgColors = ['bg-blue-50', 'bg-purple-50', 'bg-pink-50', 'bg-green-50', 'bg-orange-50'];
-              const darkBgColors = ['dark:bg-blue-950/20', 'dark:bg-purple-950/20', 'dark:bg-pink-950/20', 'dark:bg-green-950/20', 'dark:bg-orange-950/20'];
-              
-              return (
-                <Card key={product.id} className="relative overflow-hidden group card-hover border-0 shadow-xl">
-                  <div className={`absolute top-0 right-0 w-32 h-32 ${bgColors[index]} ${darkBgColors[index]} rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500`} />
-                  <CardHeader className="relative">
-                    <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-r ${colors[index]} shadow-lg`}>
-                      {IconComponent && <IconComponent className="h-7 w-7 text-white" />}
-                    </div>
-                    <CardTitle className="text-2xl">{product.trademarkedName}</CardTitle>
-                    <CardDescription className="text-base">{product.tagline}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="relative">
-                    <p className="mb-6 text-muted-foreground">
-                      {product.description}
-                    </p>
-                    <Button variant="link" className="px-0 text-lg font-semibold group-hover:translate-x-2 transition-transform" asChild>
-                      <Link href={`/products/${product.id}`}>
-                        Learn more <ArrowRight className="ml-1 h-5 w-5" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="container relative mx-auto max-w-2xl pb-20 pt-10 space-y-6 lg:max-w-4xl lg:px-12 flex flex-col items-center">
+            <div className="prose sm:prose-lg md:prose-xl xl:prose-2xl text-gray-700 prose-a:text-gray-700 font-light text-center">
+              <p>
+                ProSpot transforms brick-and-mortar retail with intelligent technology that creates 
+                seamless shopping experiences. Our suite of tools helps retailers boost sales by 32% 
+                on average while delighting customers with personalized, engaging interactions.
+              </p>
+              <div className="flex items-center flex-col gap-4">
+                <div className="flex flex-col md:inline-flex md:flex-row rounded-xl md:rounded-full shadow-xl md:whitespace-nowrap text-center bg-gray-900 p-4 md:pr-2 md:pl-6 md:py-2 text-white text-sm lg:text-base mt-6 font-mono gap-4 items-center">
+                  <span>Transform your retail experience today</span>
+                  <Button
+                    asChild
+                    className="text-white flex items-center gap-2 relative cursor-pointer bg-blue md:aspect-square px-4 py-2 md:p-2 rounded-xl md:rounded-full hover:bg-yellow hover:text-black transition-colors duration-300"
+                  >
+                    <Link href="/demo">
+                      <span className="md:hidden">Get Started</span>
+                      <Icons.ArrowRight className="h-4 md:h-6" />
+                    </Link>
+                  </Button>
+                </div>
+                <Link 
+                  className="inline-flex text-brand text-xs md:text-sm underline hover:text-gray-900"
+                  href="/about"
+                >
+                  Learn about our mission
+                  <Icons.ExternalLink className="w-4 h-4 ml-1 inline" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* CTA Section with gradient */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 animate-gradient" />
-        <div className="relative container px-4 sm:px-6 lg:px-8 py-24">
+      {/* Products Section */}
+      <div className="border-t border-gray-100 bg-gray-50">
+        <div className="container">
+          <aside className="py-12 sm:py-20">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+                Our Products
+              </h2>
+              <p className="mt-2 text-lg leading-8 text-gray-600">
+                Five powerful solutions that work together to transform your retail experience.
+              </p>
+              <div className="pt-6 space-y-6">
+                {products.map((product) => {
+                  const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
+                  
+                  return (
+                    <article 
+                      key={product.id}
+                      className="border border-gray-200 rounded-sm p-6 bg-gray-50 flex flex-col justify-between transition-colors hover:bg-white relative"
+                    >
+                      <Link className="hover-brand underline transition-colors" href={`/products/${product.id}`}>
+                        <span className="absolute inset-0 z-10"></span>
+                      </Link>
+                      <div>
+                        <h3 className="text-2xl font-bold mb-4 leading-tight">
+                          {product.trademarkedName}
+                        </h3>
+                        <p className="line-clamp-3 text-sm leading-6 text-gray-600 max-w-[70ch]">
+                          {product.description}
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
+                        <div className="flex items-center">
+                          <div className="flex items-center font-mono">
+                            <div className="h-6 w-6 mr-2">
+                              {IconComponent && <IconComponent className="h-full w-full" />}
+                            </div>
+                            <div className="flex flex-col">
+                              <div className="font-bold text-sm">{product.tagline}</div>
+                            </div>
+                          </div>
+                        </div>
+                        <span className="text-gray-500 text-xs font-mono">
+                          View details →
+                        </span>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-white">
+        <div className="container">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-6 text-4xl md:text-5xl font-bold text-white">
-              Ready to see ProSpot in action?
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Trusted by retailers nationwide
             </h2>
-            <p className="mb-10 text-xl text-gray-200 max-w-2xl mx-auto">
-              Let&apos;s discuss your unique priorities—whether it&apos;s piloting ProGuide in a single department 
-              or rolling out the full suite across hundreds of doors.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white hover:bg-gray-100 text-gray-900 shadow-xl" asChild>
-                <Link href="/demo">
-                  Schedule Your Demo <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-gray-900" asChild>
-                <Link href="/contact">
-                  Contact Sales
-                </Link>
-              </Button>
+            <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4">
+              <div className="text-center">
+                <div className="text-4xl font-bold tracking-tight">100+</div>
+                <div className="text-sm text-gray-600 mt-2">Retail Partners</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold tracking-tight">32%</div>
+                <div className="text-sm text-gray-600 mt-2">Average Sales Lift</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold tracking-tight">2M+</div>
+                <div className="text-sm text-gray-600 mt-2">Daily Interactions</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold tracking-tight">4.8</div>
+                <div className="text-sm text-gray-600 mt-2">Customer Rating</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

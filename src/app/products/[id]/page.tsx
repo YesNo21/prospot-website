@@ -29,80 +29,72 @@ export default async function ProductPage({
   const IconComponent = Icons[product.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
 
   return (
-    <div className="flex flex-col">
+    <main className="min-h-screen pt-24">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-background">
-        <div className="container py-12 md:py-20">
-          <Button variant="ghost" className="mb-8" asChild>
-            <Link href="/products">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Products
-            </Link>
-          </Button>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-dots opacity-10"></div>
+        <div className="container py-12 sm:py-20">
+          <Link href="/" className="inline-flex items-center text-sm font-mono text-muted-foreground hover:text-foreground mb-8">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to products
+          </Link>
           
-          <div className="grid gap-12 md:grid-cols-2 md:items-center">
-            <div>
-              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-lg bg-primary/10">
-                {IconComponent && <IconComponent className="h-10 w-10 text-primary" />}
-              </div>
-              <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-                {product.trademarkedName}
-              </h1>
-              <p className="mb-6 text-xl text-muted-foreground">
-                {product.tagline}
-              </p>
-              <p className="mb-8 text-lg">
-                {product.description}
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" asChild>
-                  <Link href="/demo">
-                    Schedule a Demo <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">Contact Sales</Link>
-                </Button>
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-8 flex items-center gap-4">
+              {IconComponent && (
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
+                  <IconComponent className="h-8 w-8" />
+                </div>
+              )}
+              <div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter">
+                  {product.trademarkedName}
+                </h1>
+                <p className="text-xl text-muted-foreground mt-2">
+                  {product.tagline}
+                </p>
               </div>
             </div>
             
-            <div className="relative">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Quick Facts</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="mb-2 text-sm font-semibold text-muted-foreground">Deployment Time</h4>
-                    <p>2-4 weeks pilot setup</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="mb-2 text-sm font-semibold text-muted-foreground">Integration</h4>
-                    <p>API-first, plug-and-play</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="mb-2 text-sm font-semibold text-muted-foreground">ROI Timeline</h4>
-                    <p>Measurable results within 12 weeks</p>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-xl leading-relaxed text-gray-700">
+                {product.description}
+              </p>
             </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <Link 
+                href="/demo" 
+                className="inline-flex items-center justify-center rounded-full bg-black hover:bg-blue focus:bg-blue py-3 px-6 text-white transition-colors duration-200 font-mono"
+              >
+                Schedule a Demo
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center justify-center rounded-full border border-gray-200 hover:border-gray-300 py-3 px-6 transition-colors duration-200 font-mono"
+              >
+                Contact Sales
+              </Link>
+            </div>
+          </div>
+            
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="border-t bg-background">
-        <div className="container py-20">
+      <section className="border-t border-gray-100 py-20">
+        <div className="container">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-12 text-center text-3xl font-bold">What It Does</h2>
-            <div className="grid gap-6 md:grid-cols-2">
+            <h2 className="text-3xl font-bold tracking-tight mb-12">What It Does</h2>
+            <div className="grid gap-8 md:grid-cols-2">
               {product.whatItDoes.map((item, index) => (
                 <div key={index} className="flex gap-4">
-                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-green-600" />
-                  <p>{item}</p>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center">
+                    <span className="text-xs font-mono">{index + 1}</span>
+                  </div>
+                  <p className="text-gray-700">{item}</p>
                 </div>
               ))}
             </div>
@@ -111,20 +103,21 @@ export default async function ProductPage({
       </section>
 
       {/* Benefits Section */}
-      <section className="border-t bg-gray-50 dark:bg-gray-900">
-        <div className="container py-20">
+      <section className="border-t border-gray-100 bg-gray-50 py-20">
+        <div className="container">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-12 text-center text-3xl font-bold">Why You&apos;ll Love It</h2>
-            <div className="grid gap-8 md:grid-cols-3">
+            <h2 className="text-3xl font-bold tracking-tight mb-12">Why You'll Love It</h2>
+            <div className="space-y-6">
               {product.whyYouLoveIt.map((item, index) => (
-                <Card key={index}>
-                  <CardContent className="pt-6">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                      <span className="text-xl font-bold text-primary">{index + 1}</span>
-                    </div>
-                    <p>{item}</p>
-                  </CardContent>
-                </Card>
+                <div 
+                  key={index}
+                  className="border border-gray-200 rounded-sm p-6 bg-white hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="font-mono text-sm text-muted-foreground">0{index + 1}</span>
+                    <p className="text-gray-700">{item}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -132,91 +125,85 @@ export default async function ProductPage({
       </section>
 
       {/* Technical Details Section */}
-      <section className="border-t bg-background">
-        <div className="container py-20">
-          <h2 className="mb-12 text-center text-3xl font-bold">Enterprise Details</h2>
-          
-          <div className="grid gap-8 lg:grid-cols-3">
-            {product.keyCap && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Key Capabilities</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {product.keyCap.map((item, index) => (
-                      <li key={index} className="flex gap-2 text-sm">
-                        <span className="text-primary">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            )}
-            
-            {product.businessImpact && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Business Impact</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {product.businessImpact.map((item, index) => (
-                      <li key={index} className="flex gap-2 text-sm">
-                        <span className="text-green-600">✓</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            )}
-            
-            {product.deploymentScalability && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Deployment & Scalability</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {product.deploymentScalability.map((item, index) => (
-                      <li key={index} className="flex gap-2 text-sm">
-                        <span className="text-blue-600">→</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            )}
+      {(product.keyCap || product.businessImpact || product.deploymentScalability) && (
+        <section className="border-t border-gray-100 py-20">
+          <div className="container">
+            <div className="mx-auto max-w-6xl">
+              <h2 className="text-3xl font-bold tracking-tight mb-12">Enterprise Details</h2>
+              
+              <div className="grid gap-12 lg:grid-cols-3">
+                {product.keyCap && (
+                  <div>
+                    <h3 className="font-mono text-sm uppercase mb-6">Key Capabilities</h3>
+                    <ul className="space-y-3">
+                      {product.keyCap.map((item, index) => (
+                        <li key={index} className="text-sm text-gray-700">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
+                {product.businessImpact && (
+                  <div>
+                    <h3 className="font-mono text-sm uppercase mb-6">Business Impact</h3>
+                    <ul className="space-y-3">
+                      {product.businessImpact.map((item, index) => (
+                        <li key={index} className="text-sm text-gray-700">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
+                {product.deploymentScalability && (
+                  <div>
+                    <h3 className="font-mono text-sm uppercase mb-6">Deployment & Scalability</h3>
+                    <ul className="space-y-3">
+                      {product.deploymentScalability.map((item, index) => (
+                        <li key={index} className="text-sm text-gray-700">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA Section */}
-      <section className="border-t bg-primary text-primary-foreground">
-        <div className="container py-20">
+      <section className="border-t border-gray-100 bg-gray-900 text-white py-20">
+        <div className="container">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-4 text-3xl font-bold">
-              Ready to transform your retail experience with {product.trademarkedName}?
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
+              Ready to see {product.trademarkedName} in action?
             </h2>
-            <p className="mb-8 text-lg opacity-90">
-              Let&apos;s discuss how {product.trademarkedName} can drive measurable results for your stores.
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              Let's discuss how {product.trademarkedName} can transform your retail experience and drive measurable results.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" variant="secondary" asChild>
-                <Link href="/demo">
-                  Book Your Demo <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="bg-transparent text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <Link href="/contact">Talk to Sales</Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/demo" 
+                className="inline-flex items-center justify-center rounded-full bg-white hover:bg-gray-100 py-3 px-6 text-gray-900 transition-colors duration-200 font-mono"
+              >
+                Book Your Demo
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center justify-center rounded-full border border-white hover:bg-white hover:text-gray-900 py-3 px-6 transition-colors duration-200 font-mono"
+              >
+                Talk to Sales
+              </Link>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
