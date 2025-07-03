@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { products } from "@/lib/products";
 import * as Icons from "lucide-react";
-import { Logo } from "@/components/logo";
+import Image from "next/image";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -25,7 +25,14 @@ export function Navbar() {
       <div className="container px-4 sm:px-6 py-6">
         <div className="flex items-center justify-between gap-5">
           <Link href="/" className="flex items-center">
-            <Logo className="h-8 sm:h-10" variant="text" />
+            <Image 
+              src="/logos/SVG/prospot_logo_2.svg" 
+              alt="ProSpot" 
+              width={160} 
+              height={44} 
+              className="h-8 sm:h-10 w-auto"
+              priority
+            />
           </Link>
         
           <nav>
