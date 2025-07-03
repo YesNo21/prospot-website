@@ -1,103 +1,153 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { products } from "@/lib/products";
+import * as Icons from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-background">
+        <div className="container py-20 md:py-32">
+          <div className="mx-auto max-w-4xl text-center">
+            <Badge className="mb-4" variant="secondary">
+              Enterprise-Grade Retail Technology
+            </Badge>
+            <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+              Simple, Scalable Tools That Make Shopping Easier—and Boost Store Sales
+            </h1>
+            <p className="mb-8 text-lg text-muted-foreground sm:text-xl">
+              ProSpot delivers enterprise-grade, B2B tools that transform brick-and-mortar retail 
+              into data-driven, shopper-centric experiences. We combine AI-powered virtual assistants, 
+              intelligent shelf sensors, interactive displays, sampling apps, and AR/VR solutions 
+              into a unified, modular platform.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <Button size="lg" asChild>
+                <Link href="/demo">
+                  Book a Demo <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/products">Explore Products</Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Why ProSpot Section */}
+      <section className="border-t bg-background">
+        <div className="container py-20">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-12 text-center text-3xl font-bold">Why ProSpot?</h2>
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="flex gap-4">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-green-600" />
+                <div>
+                  <h3 className="mb-2 font-semibold">End-to-end, consultative approach</h3>
+                  <p className="text-muted-foreground">
+                    Strategy, implementation, analytics, continuous optimization
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-green-600" />
+                <div>
+                  <h3 className="mb-2 font-semibold">Open, API-first architecture</h3>
+                  <p className="text-muted-foreground">
+                    Plug into existing POS, CRM, inventory, loyalty and DMP systems
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-green-600" />
+                <div>
+                  <h3 className="mb-2 font-semibold">Proven ROI</h3>
+                  <p className="text-muted-foreground">
+                    10–25% increases in add-to-basket rates and average order value within 12 weeks
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-green-600" />
+                <div>
+                  <h3 className="mb-2 font-semibold">Scalable design</h3>
+                  <p className="text-muted-foreground">
+                    Deploy a pilot aisle today, roll out 100+ stores tomorrow
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Overview */}
+      <section className="border-t bg-gray-50 dark:bg-gray-900">
+        <div className="container py-20">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="mb-4 text-3xl font-bold">Our Solutions</h2>
+            <p className="mb-12 text-lg text-muted-foreground">
+              Every ProSpot tool plugs into your existing store systems and comes with expert setup and support. 
+              Best of all, you start measuring real gains—more products sold, fewer frustrated shoppers—within weeks.
+            </p>
+          </div>
+          
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {products.map((product) => {
+              const IconComponent = Icons[product.icon as keyof typeof Icons];
+              
+              return (
+                <Card key={product.id} className="relative overflow-hidden transition-shadow hover:shadow-lg">
+                  <CardHeader>
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                      {IconComponent && <IconComponent className="h-6 w-6 text-primary" />}
+                    </div>
+                    <CardTitle>{product.trademarkedName}</CardTitle>
+                    <CardDescription>{product.tagline}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="mb-4 text-sm text-muted-foreground">
+                      {product.description}
+                    </p>
+                    <Button variant="link" className="px-0" asChild>
+                      <Link href={`/products/${product.id}`}>
+                        Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="border-t bg-primary text-primary-foreground">
+        <div className="container py-20">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="mb-4 text-3xl font-bold">
+              Ready to see ProSpot in action?
+            </h2>
+            <p className="mb-8 text-lg opacity-90">
+              Let&apos;s discuss your unique priorities—whether it&apos;s piloting ProGuide in a single department 
+              or rolling out the full suite across hundreds of doors. Our consultative team will craft 
+              a tailored roadmap, backed by proof points and a flexible commercial model that scales 
+              with your success.
+            </p>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/demo">
+                Schedule Your Demo <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
